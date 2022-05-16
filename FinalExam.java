@@ -55,15 +55,26 @@ public class FinalExam {
         return maxLoc;
     } 
     
+    public static void giveAnswers(int[] arrayToExamine, int medianAmt, int startLoc) {
+        printArray(arrayToExamine); 
+        
+        System.out.println("The median element is: " + medianAmt);
+        System.out.print("The max three number sequence is: ");
+        for (int i = 0; i < 3; ++i){
+            System.out.print( arrayToExamine[startLoc + i] + " ");
+        }
+        System.out.println();
+    }
+
+
     public static void main(String[] args) {
-        int [] array1 = constructArray();
-        int max = findMaxSub(array1);
+        int [] array1 = constructArray();   //create the array and fill it with random numbers
         
-        System.out.println("The length of the array is: " + array1.length); 
-        printArray(array1);
-        System.out.println("The median element is: " + findMedian(array1));
-        System.out.println("The max three number sequence is: "+ array1[max] + ", " + array1[max+1] + ", " + array1[max+2]);
+        int max = findMaxSub(array1);       //identify the starting position of the max three number sequence
         
+        int med = findMedian(array1);       //identify the median element of the array
+
+        giveAnswers(array1, med, max);      //print out results for the user
         
     }
 
